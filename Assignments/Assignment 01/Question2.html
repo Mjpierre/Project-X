@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment_01 Computer Graphics Q2.</title>
+</head>
+<body>
+<style>
+    input{
+        padding: 10px;
+        background-color: grey;
+        color: white;
+        display: flex;
+        justify-content: center;
+        alignment-baseline: center;
+        margin: auto;
+        font-family: Arial, "Helvetica Neue";
+    }
+    h2{
+        color:lightslategrey;
+        font-family: "Helvetica Neue";
+        font-size: 350%;
+        text-align: center;
+    }
+    p{
+        color: darkslategrey;
+        font-family: "Helvetica Neue";
+        font-size: 200%;
+        text-align: center;
+    }
+    .center {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        border: 5px double darkolivegreen ;
+        background-color: lightgrey;
+        padding: 5px;
+    }
+
+</style>
+
+
+<h2> Question2.html </h2>
+
+<p> Click "Date & Time" to see today's current date and time. </p>
+
+<div class="center">
+    <input type="button" value="Date & Time", onclick="showTime()">
+    <input type="button" value="Stop" onclick="stopTime()">
+</div>
+
+</body>
+<p id="currTime"> </p>
+<script>
+    function showTime(){
+        var tad = new Date();
+        var str = ""
+        var day = tad.getDay()
+        var hour = tad.getHours()
+        var minutes = tad.getMinutes()
+        var seconds = tad.getSeconds()
+        var month = tad.getMonth()
+        var date = tad.getDate()
+        var year = tad.getFullYear()
+
+        var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var days_list =["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+        str = days_list[day] + ", " + months[month] + " " + date + " " + year + " | " + hour + ":" + minutes + ":" + seconds
+        //console.log(str)
+
+
+
+
+        document.getElementById("currTime").innerHTML = str;
+        myVar = setTimeout("showTime()");
+    }
+    function stopTime(){
+        clearTimeout(myVar);
+    }
+</script>
+</html>

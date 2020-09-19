@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment_01 Computer Graphics Q6.</title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+    'use strict';
+    // Specifies the script as a media type
+    // This function initializes a canvas
+    function init() {
+        // Canvas is set to a read only reference by const, and is set equal to the webGl canvas.
+        //When we call init, if there is a canvas, it will appear.
+        const canvas = document.getElementById('webgl-canvas');
+        // Ensure we have a canvas
+        if (!canvas) {
+            console.error('Sorry! No HTML5 Canvas was found on this page');
+            return;
+            // The if statement sends the user a message in the console if there is no canvas applicable.
+            //The console message is set to send the user a message in the form of an error as "console.error" implies.
+            //Afterwards it returns the results.
+        }
+        // We set gl equal to the 'getContext' function which allows us to use 2D drawing functions
+        const gl = canvas.getContext('webgl2');
+        // Ensure we have a context
+        const message = gl
+            ? 'Hooray! You got a WebGL2 context'
+            : 'Sorry! WebGL is not available';
+        alert(message);
+        // Sets a new variable 'message' equal to the const gl
+        // When message is called it displays an alert message
+    }
+    // Call init once the document has loaded
+    window.onload= init;
+    //This is the first piece of code that is ran. (Runs as soon as the window loads.)
+    // Will check to see if the user has a canvas and if not will send the user an error message.
+</script>
+
+
+</html>

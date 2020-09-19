@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignments_01 Computer Graphics Q1.</title>
+</head>
+<style>
+    h2 {
+        color: midnightblue;
+        font-family: "Fira Code";
+        font-size: 200%;
+        display: flex;
+        justify-content: center;
+    }
+    p {
+        color: midnightblue;
+        font-family: "Fira Code";
+        font-size: large;
+        display: flex;
+        justify-content: center;
+    }
+    .aligned {
+        justify-content: center;
+        display: flex;
+
+    }
+    .middleOp{
+        display: flex;
+        justify-content: center;
+        font-family: "Fira Code";
+        font-size: large;
+    }
+
+</style>
+<body>
+<h2> Question1.html </h2>
+<p> This program accepts a number value and calculates the area of a circle with the value the user inserts. </p>
+<div class="aligned">
+    <img src="Images/pie314.jpg" alt="PIE!">
+</div><br>
+
+
+<br>
+<div class="middleOp">
+    <form name=circle>
+        Enter a value:
+        <label for="radiusvalue"></label><input type="text" id="radiusvalue" onkeyup="circleArea();"> <br>
+
+    <br>Note: Only number values return the area of a circle. Any other character will return "NaN."<br>
+    <br>TIP: Check for answers in the console.<br>
+
+
+</form>
+
+<script>
+    function circleArea() {
+        var x = document.circle.radiusvalue.value;
+        console.log(x * x * Math.PI);
+    }
+
+</script>
+</div>
+</body>
+</html>

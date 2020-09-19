@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment_01 Computer Graphics Q3.</title>
+</head>
+
+<style>
+    h5{
+        font-size: 250%;
+        font-family: -apple-system;
+        fill: darkgoldenrod;
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+    }
+    p{
+        display: flex;
+        justify-content: center;
+        font-size: 150%;}
+
+
+</style>
+<body>
+<h5> Question3.html </h5>
+
+<p> This program determines if a matrix is a diagonal matrix or not.</p>
+
+<p> Press: "ctrl + shift + i"</p>
+
+
+
+
+</body>
+
+<script>
+    var d;
+    var m;
+
+    function dmatrixCheck(diag) {
+        d = 0
+        m = 0
+
+        for (d; d < diag.length; d++) {
+
+            for (m; m < diag.length; m++) {
+
+                if (d !== m && diag[d][m] !== 0)
+                    return false;
+            }
+        }
+        return true;
+    }
+    answer1 = console.log(dmatrixCheck([[2, 4, 0], [0, 1, 0], [6, 0, 3] ]));
+    answer2 = console.log(dmatrixCheck([[6, 0, 0], [0, 6, 0], [0, 0, 6] ]));
+    answer3 =console.log(dmatrixCheck([[2, 0, 1], [0, 4, 0], [2, 0, 0]]));
+
+
+
+
+</script>
+
+</html>
