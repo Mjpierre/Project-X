@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment02 Question1.html</title>
+
+    <canvas id="webgl" width="1000" height="1000">
+    </canvas>
+</head>
+<style>
+    canvas{
+        background-color: #44abda;
+    }
+
+</style>
+
+<body>
+
+
+<script>
+    // #Code reference https://code.sololearn.com/WuFD6lUS9jQ0/?ref=app#js
+
+    function DDA(x1,y1,x2,y2) {
+        var canvas = document.getElementById('webgl');
+        var c = canvas.getContext('2d');
+
+        x1 = parseInt(prompt("Please enter a value for x1"));
+        y1 = parseInt(prompt("Please enter a value for y1"));
+        x2 = parseInt(prompt("Please enter a value for x2"));
+        y2 = parseInt(prompt("Please enter a value for y2"));
+
+        dx = x2 - x1;
+        dy = y2 - y1;
+        steps = 0;
+
+        if (Math.abs(dx) > Math.abs(dy)) {
+            steps = Math.abs(dx);
+        }
+        else{
+            steps = Math.abs(dy);
+        }
+        incX = dx / steps;
+        incY = dy / steps;
+        var t = setInterval(drawL, 30);
+
+        function drawL(){
+            for(i = 1; i <= steps; i++) {
+                pixelate(x1, y1);
+                x1 = x1 + incX;
+                y1 = y1 + incY;
+            }
+
+            function pixelate(x1,y1){
+                c.beginPath();
+
+                c.arc(x1,y1,1,0,Math.PI*2, true);
+                c.fillstyle = "rgba(200,200,200,0.5)";
+
+                c.fill();
+                c.closePath();
+            }
+        }
+    }
+    DDA()
+
+
+
+</script>
+
+</body>
+</html>
+
+

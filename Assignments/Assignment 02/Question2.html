@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<style>
+    canvas{
+        background-color: #806787;
+    }
+
+</style>
+<body>
+<canvas id ='canvas'></canvas>
+
+<script>
+    function bresn(x1, y1, x2, y2) {
+        var canvas = document.querySelector('canvas')
+        var context = canvas.getContext("2d")
+
+        canvas.width = 900;
+        canvas.height = 900;
+
+        x = x1
+        y = y1
+        dx = x2 - x1
+        dy = y2 - y1
+        p = 2 * dy - dx
+
+
+        while (x <= x2) {
+            context.arc(x, y, 1, 0, Math.PI * 2, false);
+            context.fillStyle = "rgba(300, 50, 100, 1)";
+            context.fill();
+
+            x = x + 1
+
+            if (p < 0) {
+                p = p + 2 * dy;
+                console.log(x)
+
+            } else {
+                p = p + 2 * dy - 2 * dx
+                y = y + 1
+                console.log(y)
+
+            }
+
+        }
+    }
+
+    window.onload = bresn(200, 400, 400, 500);
+
+</script>
+</body>
+</html>
