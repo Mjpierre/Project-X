@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>Assigment02 Question 2</title>
+    <link rel="shortcut icon" type="image/png" href="../common/images/favicon.png" />
+
+    <!-- libraries -->
+    <link rel="stylesheet" href="../common/lib/normalize.css">
+
+    <!-- modules -->
+    <script type="text/javascript" src="../common/js/utils.js"></script>
+
+</head>
+
+<style>
+    canvas{
+        background-color: darkslategrey;
+        background-blend-mode: luminosity;
+    }
+
+</style>
+
+<body onload="draw();">
+<canvas id="circle"> </canvas>
+
+<script>
+
+    function draw() {
+        var canvas = document.getElementById('circle');
+        // Sets the max size of the canvas
+        w = canvas.width = 750;
+        h = canvas.height = 600;
+
+        if (canvas.getContext) {
+            var cntx = canvas.getContext('2d');
+
+            // Both x and y are the locations for the circle
+            var x = Math.floor(Math.random() * w);
+            var y = Math.floor(Math.random() * h);
+
+            var r = 50;
+
+            // spdx and spdy is the speed in which the circle moves
+            var spdx = Math.random() + 2.5 * 3.5 / 2;
+            var spdy = Math.random() + 2 * 2;
+
+            bounce();
+
+            // Shows the animation of the circle moving
+            function bounce() {
+                requestAnimationFrame(bounce);
+
+                // Clears the pixels upon movement
+                cntx.clearRect(0, 0, w, h);
+
+                // Creating the circle and its attributes
+                cntx.beginPath();
+                cntx.arc(x, y, r, 0, 2 * Math.PI, true);
+                cntx.lineWidth = 6;
+                cntx.strokeStyle = "gold";
+                cntx.stroke();
+
+                // Needed conditions for the circle to stay within the canvas boundaries
+
+                    // for width (x)
+                    if(x + spdx > canvas.width || x + spdx < 0) {
+                    spdx = -spdx;
+                }
+                    // for height (y)
+                    if(y + spdy > canvas.height || y + spdy < 0) {
+                        spdy = -spdy;
+                }
+                    x = x + spdx;
+                    y = y + spdy;
+
+            }
+        }
+    }
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<html>
+<head>
+    <title>Assigment03 Question 1</title>
+
+</head>
+
+<style>
+    canvas{
+        background-color: black;
+    }
+
+</style>
+
+<body onload="drawP();">
+<canvas id="square"> </canvas>
+
+<script>
+
+    function drawP() {
+        var canvas = document.getElementById('square');
+        // Sets the max size of the canvas
+        w = canvas.width = 750;
+        h = canvas.height = 600;
+
+        if (canvas.getContext) {
+            var cntx = canvas.getContext('2d');
+
+            // Both x and y are the point
+            var x = 10
+            var y = 10
+
+
+            // movx and movy are both the speed & the movement of the point
+            var movx = 1 + Math.sin(y);
+            var movy = x * Math.sin(x);
+
+
+            sineWave();
+
+            // Shows the animation of the circle moving
+            function sineWave() {
+                requestAnimationFrame(sineWave);
+
+                // Clears the pixels upon each movement
+                cntx.clearRect(0, 0, w, h);
+
+                // Creating the point and its attributes
+                cntx.beginPath();
+                cntx.fillRect(x, y, 10, 10);
+                cntx.fillStyle = "orange";
+                cntx.fill();
+
+
+                // Conditions for the point to stay within the canvas boundaries
+
+                // for width (x)
+                if (x > canvas.width || x < 0) {
+                    movx = -movx;
+                }
+                // for height (y) / 1.5
+                if (y  > canvas.height / 1.5 || y < 0) {
+                    movy = -movy;
+                }
+                // The wavelength or how wide the point moves each bounce for the x-axis
+                x = x + movx * 4;
+                // The frequency or speed in which the point moves up and down on the y-axis
+                y = y + movy;
+
+
+            }
+        }
+    }
+
+</script>
+
+
+</body>
+</html>
