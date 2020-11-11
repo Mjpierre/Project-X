@@ -23,7 +23,7 @@
         h = canvas.height = 600;
 
         if (canvas.getContext) {
-            var cntx = canvas.getContext('2d');
+            var c = canvas.getContext('2d');
 
             // Both x and y are the point
             var x = 10
@@ -42,13 +42,13 @@
                 requestAnimationFrame(sineWave);
 
                 // Clears the pixels upon each movement
-                cntx.clearRect(0, 0, w, h);
+                c.clearRect(0, 0, w, h);
 
-                // Creating the point and its attributes
-                cntx.beginPath();
-                cntx.fillRect(x, y, 10, 10);
-                cntx.fillStyle = "orange";
-                cntx.fill();
+                // Creating the point/square and its attributes
+                c.beginPath();
+                c.fillRect(x, y, 10, 10);
+                c.fillStyle = "orange";
+                c.fill();
 
 
                 // Conditions for the point to stay within the canvas boundaries
