@@ -1,0 +1,108 @@
+<html>
+<head>
+    <title>Assigment04 Question 2</title>
+
+
+</head>
+
+<style>
+    canvas{
+        background-color: black;
+    }
+
+</style>
+
+<body onload="drawPoints();">
+<canvas id="Rect"> </canvas>
+
+<script>
+
+    function drawPoints(p1Color, p2Color) {
+        var canvas = document.getElementById('Rect');
+        // Sets the max size of the canvas
+        w = canvas.width = 550;
+        h = canvas.height = 550;
+
+        const cntx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d')
+
+
+        if (canvas.getContext) {
+
+            // (x, y) and (x2, y2) are the coordinates for the points
+            var x = 10
+            var y = 10
+            var x2 = 10
+            var y2 = 10
+
+
+            // spx, spy, spx2, spy2 are the speed and pattern in which the points move
+            var spx = 3;
+            var spy = 4;
+
+            var spx2 = 4;
+            var spy2 = 3;
+
+            //Function for points to change colors randomly from the list every 5 secs.
+            var moreColor = ['blue', 'orange', 'white', 'red', 'green', 'purple', 'yellow', 'gold', 'teal', 'brown', 'pink'];
+            var changeC = setInterval(function(){
+                let p1Color = moreColor[Math.floor(Math.random()* 11 + 1)];
+                let p2Color = moreColor[Math.floor(Math.random()* 11 + 1)];
+                drawPoints(p1Color, p2Color);
+            }, 5000);
+
+
+            dance();
+
+            // Shows the animation of the points moving
+            function dance() {
+                requestAnimationFrame(dance);
+
+                // Clears the pixels upon each movement the points make
+                cntx.clearRect(0, 0, w, h);
+
+                // Creating the points and their attributes
+                cntx.beginPath();
+                cntx.fillRect(x, y, 10, 10);
+                cntx.fillStyle = p1Color || 'cyan';
+                cntx.fill();
+
+                ctx.beginPath();
+                ctx.fillRect(x2, y2, 10, 10);
+                ctx.fillStyle = p2Color || 'magenta';
+                ctx.fill();
+
+
+
+                // Needed conditions for points to stay within the boundaries of the canvas
+
+                // for width (x)
+                if(x + spx > canvas.width || x + spx < 0) {
+                    spx = -spx;
+                }
+                // for height (y)
+                if(y + spy > canvas.height || y + spy < 0) {
+                    spy = -spy;
+                }
+                x = x + spx;
+                y = y + spy;
+
+                if(x2 + spx2 > canvas.width || x2 + spx2 < 0) {
+                    spx2 = -spx2;
+                }
+                // for height (y)
+                if(y2 + spy2 > canvas.height || y2 + spy2 < 0) {
+                    spy2 = -spy2;
+                }
+                x2 = x2 + spx2;
+                y2 = y2 + spy2;
+
+            }
+        }
+    }
+
+</script>
+
+
+</body>
+</html>
